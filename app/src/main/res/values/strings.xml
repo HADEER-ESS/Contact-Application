@@ -1,3 +1,7 @@
 <resources>
-    <string name="app_name">Contact App</string>
+    <string name="app_name" translatable="false">Contact App</string>
+    <string name="account_name">Name</string>
+    <string name="account_phone">Phone Number</string>
+    <string name="description">Description</string>
+    <string name="save">Save</string>
 </resources>
