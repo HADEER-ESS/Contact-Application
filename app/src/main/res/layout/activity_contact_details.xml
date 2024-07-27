@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ContactDetailsActivity">
+
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:id="@+id/content_avatar_image"
+        android:src="@drawable/account_user_image"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginVertical="50dp"
+        android:scaleType="centerCrop"
+        android:background="@drawable/circle_border"
+        />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/content_info_view_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="12dp"
+        android:layout_marginVertical="8dp"
+        android:background="@drawable/layout_border"
+        android:paddingVertical="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/content_avatar_image">
+
+        <TextView
+            android:id="@+id/content_name_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/account_name"
+            android:textAlignment="viewStart"
+            android:textColor="@color/text_main_color"
+            android:textSize="20sp"
+            android:paddingStart="24dp"
+            android:layout_marginVertical="8dp"
+            app:layout_constraintEnd_toStartOf="@id/content_name_content"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/content_name_content"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_secondry_color"
+            android:textSize="20sp"
+            android:layout_marginVertical="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/content_name_title"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/account_name" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/button_color"
+            app:layout_constraintTop_toBottomOf="@id/content_name_title"
+            app:layout_constraintBottom_toTopOf="@id/content_phone_content"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/content_phone_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/account_phone"
+            android:textAlignment="viewStart"
+            android:textColor="@color/text_main_color"
+            android:textSize="20sp"
+            android:paddingStart="24dp"
+            android:layout_marginVertical="8dp"
+            app:layout_constraintEnd_toStartOf="@id/content_phone_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/content_name_title" />
+
+        <TextView
+            android:id="@+id/content_phone_content"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_secondry_color"
+            android:textSize="20sp"
+            android:layout_marginVertical="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/content_phone_title"
+            app:layout_constraintTop_toBottomOf="@id/content_name_content"
+            tools:text="@string/account_phone" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginVertical="12dp"
+            android:background="@color/button_color"
+            app:layout_constraintTop_toBottomOf="@id/content_phone_title"
+            app:layout_constraintBottom_toTopOf="@id/content_description_title"
+            app:layout_constraintEnd_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            />
+
+        <TextView
+            android:id="@+id/content_description_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/description"
+            android:textAlignment="viewStart"
+            android:textColor="@color/text_main_color"
+            android:textSize="20sp"
+            android:paddingStart="24dp"
+
+            app:layout_constraintEnd_toStartOf="@id/content_description_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/content_phone_title" />
+
+        <TextView
+            android:id="@+id/content_description_content"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/text_secondry_color"
+            android:textSize="20sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/content_description_title"
+            app:layout_constraintTop_toBottomOf="@id/content_phone_content"
+            tools:text="@string/description" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
