@@ -39,10 +39,21 @@
         android:inputType="phone"
         android:padding="14dp"
         android:textSize="12sp"
+        android:maxLength="12"
         android:layout_marginHorizontal="18dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/account_name_et" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/phone_input_hint"
+        android:text="@string/_0_12"
+        android:textSize="12sp"
+        app:layout_constraintTop_toBottomOf="@id/account_phone_et"
+        app:layout_constraintEnd_toEndOf="@id/account_phone_et"
+        app:layout_constraintBottom_toTopOf="@id/account_description_et"
+        />
 
     <androidx.appcompat.widget.AppCompatEditText
         android:id="@+id/account_description_et"
