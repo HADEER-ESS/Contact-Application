@@ -1,5 +1,6 @@
 package com.example.contactapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
@@ -13,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.contactapp.data.Account
 import com.example.contactapp.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), OnItemClickListener {
 
     private lateinit var binding : ActivityMainBinding
     private lateinit var recyclerViewAccountData : RecyclerView;
@@ -32,7 +33,7 @@ class MainActivity : AppCompatActivity() {
 
         recyclerViewAccountData.layoutManager = LinearLayoutManager(this)
 
-        adaptor = AccountItemAdaptor(accountData)
+        adaptor = AccountItemAdaptor(accountData , this)
 
         recyclerViewAccountData.adapter = adaptor
 
@@ -89,6 +90,15 @@ class MainActivity : AppCompatActivity() {
         override fun afterTextChanged(s: Editable?) {
         }
 
+    }
+
+    override fun onItemClick(content: Account) {
+        val intent  = Intent(this , ContactDetailsActivity::class.java)
+        intent.putExtra("ContentName" , content.name)
+        intent.putExtra("ContentPhone" , content.phone)
+        intent.putExtra("ContentDesc" , content.description)
+
+        startActivity(intent)
     }
 
 }

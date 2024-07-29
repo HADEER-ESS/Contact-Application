@@ -13,7 +13,12 @@ import com.example.contactapp.databinding.AccountItemBinding
 import com.example.contactapp.databinding.ActivityContactDetailsBinding
 import com.example.contactapp.databinding.ActivityMainBinding
 
-class AccountItemAdaptor(private val accountData : ArrayList<Account>) : RecyclerView.Adapter<AccountItemAdaptor.ViewHolder>() {
+class AccountItemAdaptor(
+    private val accountData : ArrayList<Account>,
+    private val listener : OnItemClickListener
+) : RecyclerView.Adapter<AccountItemAdaptor.ViewHolder>() {
+
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val context = parent.context;
         val inflater  = LayoutInflater.from(context)
@@ -27,23 +32,17 @@ class AccountItemAdaptor(private val accountData : ArrayList<Account>) : Recycle
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val account = accountData[position];
-        val context = holder.itemView.context
         holder.accountNameTextView.text = account.name;
         holder.accountPhoneTextView.text = account.phone;
 
         holder.accountNavigateImage.setOnClickListener {
-//            Toast.makeText(context, "Navigate work" , Toast.LENGTH_LONG).show()
-            val intent : Intent = Intent(context , ContactDetailsActivity::class.java)
-            intent.putExtra("ContentName" , account.name)
-            intent.putExtra("ContentPhone" , account.phone)
-            intent.putExtra("ContentDesc" , account.description)
+            listener.onItemClick(account)
 
-            context.startActivity(intent)
         }
 
     }
 
-    class ViewHolder(private val binding: AccountItemBinding) : RecyclerView.ViewHolder(binding.root) {
+     class ViewHolder(private val binding: AccountItemBinding) : RecyclerView.ViewHolder(binding.root) {
 
         val accountNavigateImage : ImageView = binding.navigateAccountImage;
         val accountNameTextView : TextView = binding.userNameTv;
@@ -51,7 +50,7 @@ class AccountItemAdaptor(private val accountData : ArrayList<Account>) : Recycle
 
     }
 
-    public fun addAccount(account: Account){
+     fun addAccount(account: Account){
         accountData.add(account)
         notifyItemInserted(accountData.size+1)
     }
